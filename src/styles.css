@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* importing fonts from google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;1,300&display=swap');
+
+html,body{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    height: 100%;
+    background-image: linear-gradient(turquoise, lightblue, aqua);
+}
