@@ -3,30 +3,27 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    width: 25%;
+    width: 20%;
 }
 
 .card{
     background-color: rgb(213, 255, 255);
     border-radius: 20px;
+
 }
 
 .form-signin #inputEmail,
 .form-signin #inputPassword {
-    direction: ltr;
     height: 44px;
     font-size: 16px;
 }
 
 .form-signin input[type=email],
 .form-signin input[type=password],
-.form-signin input[type=text],
-.form-signin button {
+.form-signin input[type=text] {
     width: 100%;
     display: block;
     margin-bottom: 10px;
-    z-index: 1;
-    position: relative;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -42,7 +39,7 @@
 .btn.btn-signin {
     /*background-color: #4d90fe; */
     background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+        /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
@@ -63,12 +60,6 @@
     background-color: rgb(12, 97, 33);
 }
 
-.forgot-password {
-    color: rgb(104, 145, 162);
-}
-
-.forgot-password:hover,
-.forgot-password:active,
-.forgot-password:focus{
-    color: rgb(12, 97, 33);
+.form-signin button{
+    width: 100%;
 }
