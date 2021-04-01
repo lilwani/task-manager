@@ -1,0 +1,15 @@
+.taskview-window{
+    width: 550px;
+    height: 350px;
+    letter-spacing: 2px;
+    color: cadetblue;
+}
+
+.list-title{
+    padding-top : 10px;
+}
+#lists{
+    background-color: rgb(205, 223, 223);
+    width: 100%;
+    height: 100%;
+}

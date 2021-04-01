@@ -5,7 +5,7 @@ import { TaskViewComponent } from "./pages/task-view/task-view.component";
 
 const routes: Routes = [
    {path: '', component: LoginPageComponent},
-   {path: 'taskview', component:TaskViewComponent}
+   {path: 'taskview', component: TaskViewComponent}
 ];
 
 @NgModule({
