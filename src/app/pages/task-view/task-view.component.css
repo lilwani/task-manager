@@ -1,15 +1,26 @@
 .taskview-window{
-    width: 550px;
-    height: 350px;
+    width: 700px;
+    height: 480px;
     letter-spacing: 2px;
     color: cadetblue;
 }
 
-.list-title{
-    padding-top : 10px;
-}
 #lists{
+    
+    background-color: rgb(204, 228, 231);
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#tasks{
     background-color: rgb(205, 223, 223);
     width: 100%;
     height: 100%;
+    padding: 12px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
+

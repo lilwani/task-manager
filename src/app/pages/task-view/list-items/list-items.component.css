@@ -1,0 +1,16 @@
+@import url("../task-view.component.css");
+
+label{
+    padding-left: 12px;
+    padding-top: 20px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.titles{
+    padding:10px; 
+    font-weight: bold;
+    letter-spacing: 4px;
+}
