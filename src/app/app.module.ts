@@ -7,7 +7,7 @@ import { TaskViewComponent } from './pages/task-view/task-view.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ListItemsComponent } from './pages/task-view/list-items/list-items.component';
 import { TaskItemsComponent } from './pages/task-view/task-items/task-items.component';
-// import { fontawesome } from "../../node_modules/@fortawesome/fontawesome-free/js/fontawesome.js";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { TaskItemsComponent } from './pages/task-view/task-items/task-items.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

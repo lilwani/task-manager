@@ -12,7 +12,7 @@ label{
 }
 
 label:hover {
-  background-color:  rgb(211, 221, 221);
+  background-color:  rgb(220, 230, 230);
   border-radius: 50px;
   border-left: solid #347e4e 5px;
 }
@@ -39,8 +39,7 @@ label:hover {
 }
 
 button:hover{
-    /* background-color: rgb(211, 221, 221); */
-    background-color: rgb(211, 221, 221);
+    background-color: rgb(220, 230, 230);
     box-shadow: black 1px 0.5px;
     cursor: pointer;
 }
