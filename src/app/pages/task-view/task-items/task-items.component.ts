@@ -5,17 +5,13 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-task-items',
   animations :[ 
     trigger('clickAnimation', [
-      state('clicked', style({
-        opacity: 1,
-        backgroundColor: 'yellow'
+      state('true', style({
+        transform : 'scale(0.97)'
       })),
-      state('unclicked', style({
-        opacity: 0.5,
-        backgroundColor: 'green',
+      state('false', style({
+        transform: 'scale(1.0)'
       })),
-      transition('clicked <=> unclicked', [
-        animate('1s ease')
-      ]),
+      transition('true <=> false', animate('10ms'))
     ]),
   ],
   templateUrl: './task-items.component.html',
@@ -29,8 +25,12 @@ export class TaskItemsComponent implements OnInit {
   }
 
   isClicked : boolean = false;
+  taskCompleted : boolean = false;
+
   clickEffect(){
       this.isClicked = !this.isClicked
-  }
+      this.taskCompleted = !this.taskCompleted
+      console.log(`Task is cliked to ${this.isClicked} and completed to ${this.taskCompleted}`)
+    }
 
 }

@@ -1,5 +1,5 @@
 <h4 class="titles">TASKS</h4>
-<p [@clickAnimation]="isClicked ? 'clicked' : 'unclicked'" (click)="clickEffect()" >Task 1 <i class="fa fa-trash" aria-hidden="true"></i> </p>
+<p [@clickAnimation]="isClicked" [ngClass]="{'closedTask' : taskCompleted == true}" (click)="clickEffect()" >Task 1 <i class="fa fa-trash" aria-hidden="true"></i> </p>
 <p>Task 2 <i class="fa fa-trash" aria-hidden="true"></i> </p>
 <p>Task 3 <i class="fa fa-trash" aria-hidden="true"></i> </p>
 <p>Task 4 <i class="fa fa-trash" aria-hidden="true"></i> </p>
