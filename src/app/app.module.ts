@@ -9,6 +9,8 @@ import { ListItemsComponent } from './pages/task-view/list-items/list-items.comp
 import { TaskItemsComponent } from './pages/task-view/task-items/task-items.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

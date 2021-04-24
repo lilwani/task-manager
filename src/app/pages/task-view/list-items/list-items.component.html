@@ -1,11 +1,36 @@
-<h4 class="titles">LISTS</h4>
-<label>List 1</label>
-<label>List 2</label>
-<label>List 3</label>
-<label>List 4</label>
-
-<div>
-    <button class="add-item" style="color: #5f9EA0; font-weight: bold;">
-        <span><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>  New List</span>
+<div class="titleAndButton">
+    <h4 class="titles">LISTS</h4>
+    <button class="add-item btn btn-md" data-toggle="modal" data-target="#staticBackdrop">
+        <span><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></span>
     </button>
+</div>
+
+
+<div class="listsNav overflow-auto">
+    <label class="labelTooltip" data-toggle="tooltip" data-placement="right" title="{{item.title}}" *ngFor="let item of allLists" [routerLink]="['/lists',item._id]">
+        {{ item.title }}
+    </label>
+
+    <!-- Modal enabling creation of a list -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-light" style="border-radius: 10px;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-weight: bold;" id="staticBackdropLabel">Create new List</h5>
+                    <button type="button" class="btn-close " data-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" #listTitle placeholder="Enter List title"
+                            aria-describedby="basic-addon2">
+                        <div class="input-group-append ">
+                            <button type="submit" data-dismiss="modal" class="btn btn-primary"
+                                (click)="createNewList(listTitle.value)">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

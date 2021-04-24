@@ -1,5 +1,6 @@
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-task-items',
@@ -19,9 +20,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskItemsComponent implements OnInit {
 
-  constructor() { }
+  allTasks : any[];
+
+  listId = "7818732vyusd7"
+
+  constructor( private taskService : TaskService) {}
 
   ngOnInit(): void {
+    this.taskService.getTasks(this.listId).subscribe( (tasks : any[])=>{
+      this.allTasks = tasks
+    })
   }
 
   isClicked : boolean = false;
