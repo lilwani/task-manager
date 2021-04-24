@@ -25,6 +25,12 @@ label:active{
   border-left: solid #347e4e 5px;
 }
 
+label:focus{
+    background-color:  rgb(220, 230, 230);
+    border-radius: 50px;
+    border-left: solid #347e4e 5px;
+  }
+
 .titles{
     padding:10px 20px; 
     font-weight: bold;

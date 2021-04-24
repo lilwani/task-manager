@@ -7,7 +7,7 @@ const routes: Routes = [
    {path: '', redirectTo: '/lists', pathMatch: 'full' },
    {path: 'taskview', component: TaskViewComponent},
    {path: 'lists', component: TaskViewComponent},
-   {path: 'lists/:listid', component: TaskViewComponent}
+   {path: 'lists/:listId', component: TaskViewComponent}
 ];
 
 @NgModule({

@@ -1,14 +1,15 @@
 @import url("../task-view.component.css");
 
 p{
-    padding: 10px 20px;
+    padding: 8px 20px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     background-color: rgb(250, 246, 246);
     border-radius: 8px;
     width: 100%;
     cursor: pointer;
+    margin : 6px;
 }
 
 .allTasks{
