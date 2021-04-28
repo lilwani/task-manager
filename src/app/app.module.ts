@@ -10,6 +10,7 @@ import { TaskItemsComponent } from './pages/task-view/task-items/task-items.comp
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { HttpClientModule } from "@angular/common/http";
+import { NewTaskComponent } from './pages/task-view/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from "@angular/common/http";
     TaskViewComponent,
     LoginPageComponent,
     ListItemsComponent,
-    TaskItemsComponent
+    TaskItemsComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,

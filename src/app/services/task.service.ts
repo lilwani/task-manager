@@ -22,4 +22,7 @@ export class TaskService {
     return this.webrequest.get(`lists/${listId}/tasks`)
   }
 
+  createTask(listId :string,title :string){
+    return this.webrequest.post(`lists/${listId}/tasks`,{ title })
+  }
 }

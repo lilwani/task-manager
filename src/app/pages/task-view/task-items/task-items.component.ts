@@ -22,6 +22,7 @@ import { SiblingDataService } from "src/app/services/sibling-data.service";
 export class TaskItemsComponent implements OnInit {
 
   allTasks: any[] 
+  listId : string
 
   constructor(private taskService: TaskService, private siblingService: SiblingDataService) {
   }
@@ -29,7 +30,8 @@ export class TaskItemsComponent implements OnInit {
   // Using BehaviourSubject to fetch the list id from route params on label click and send the data across components 
   ngOnInit(): void {
     this.siblingService.on().subscribe((listId)=>{
-      this.taskService.getTasks(listId).subscribe((tasks: any[]) => {
+      this.listId = listId;
+      this.taskService.getTasks(this.listId).subscribe((tasks: any[]) => {
         this.allTasks = tasks
       })
     })
