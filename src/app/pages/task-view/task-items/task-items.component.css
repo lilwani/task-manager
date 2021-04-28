@@ -2,14 +2,13 @@
 
 p{
     padding: 8px 20px;
-    display: inline-block;
     font-size: 14px;
     font-weight: 800;
     background-color: rgb(250, 246, 246);
     border-radius: 8px;
     width: 100%;
     cursor: pointer;
-    margin : 6px;
+    margin : 12px 2px;
 }
 
 .allTasks{
@@ -17,7 +16,14 @@ p{
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    height: 85%;
+    position: absolute;
+    width: 87%;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
 
 .titles{
     padding-left: 8px; 
@@ -35,5 +41,15 @@ p:hover{
     text-decoration: line-through;
     opacity : 0.75;
     cursor: default;
+}
+
+
+.addTaskButton{
+    position: absolute;
+    bottom: 20px;
+    right:10px;
+    border-radius: 50%;
+    color: #5f9ea0;
+    border: none;
 }
 

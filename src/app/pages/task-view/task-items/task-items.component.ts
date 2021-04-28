@@ -22,7 +22,6 @@ import { SiblingDataService } from "src/app/services/sibling-data.service";
 export class TaskItemsComponent implements OnInit {
 
   allTasks: any[] 
-  defaultTask : String
 
   constructor(private taskService: TaskService, private siblingService: SiblingDataService) {
   }
