@@ -12,7 +12,7 @@ export class NewTaskComponent implements OnInit {
 
   listId ;
 
-  constructor(private taskService:TaskService, private router:ActivatedRoute) { }
+  constructor(private taskService:TaskService, private router:ActivatedRoute, private route:Router) { }
 
   ngOnInit(): void {
     this.router.params.subscribe((params :Params)=>{
@@ -22,7 +22,7 @@ export class NewTaskComponent implements OnInit {
 
   createNewTask(title:string){
     this.taskService.createTask(this.listId,title).subscribe((newTask : Task)=>{
-      console.log(newTask);
+    this.route.navigateByUrl(`/lists/${this.listId}`)
     })
   }
 

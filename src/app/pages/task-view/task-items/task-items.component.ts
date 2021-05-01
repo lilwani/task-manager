@@ -2,6 +2,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { SiblingDataService } from "src/app/services/sibling-data.service";
+import { Task } from 'src/app/modals/task.modal';
 
 @Component({
   selector: 'app-task-items',
@@ -21,7 +22,7 @@ import { SiblingDataService } from "src/app/services/sibling-data.service";
 })
 export class TaskItemsComponent implements OnInit {
 
-  allTasks: any[] 
+  allTasks: Task 
   listId : string
 
   constructor(private taskService: TaskService, private siblingService: SiblingDataService) {
@@ -31,20 +32,18 @@ export class TaskItemsComponent implements OnInit {
   ngOnInit(): void {
     this.siblingService.on().subscribe((listId)=>{
       this.listId = listId;
-      this.taskService.getTasks(this.listId).subscribe((tasks: any[]) => {
+      this.taskService.getTasks(this.listId).subscribe((tasks: Task) => {
         this.allTasks = tasks
       })
     })
   }
 
-
-  isClicked: boolean = false;
-  taskCompleted: boolean = false;
-
-  clickEffect() {
-    this.isClicked = !this.isClicked
-    this.taskCompleted = !this.taskCompleted
-    console.log(`Task is cliked to ${this.isClicked} and completed to ${this.taskCompleted}`)
+  updateTaskToCompleted(task : Task){
+    this.taskService.completedTask(task).subscribe(()=>{
+      console.log("This Task update is completed ")
+      //toggle complete class for strike-through effect
+      task.completed = !task.completed
+    })
   }
 
 }

@@ -3,7 +3,7 @@
         <h4 class="titles">TASKS</h4>
     </div>
     <div class="allTasks overflow-auto">
-        <p [@clickAnimation]="isClicked" [ngClass]="{'closedTask' : taskCompleted == true}" (click)="clickEffect()" *ngFor="let item of allTasks">
+        <p [@clickAnimation]="isClicked" *ngFor="let item of allTasks" [ngClass]="{'closedTask' : item.completed}" (click)="updateTaskToCompleted(item)">
             {{ item.title }} <i class="fa fa-trash" aria-hidden="true"></i>
         </p>
     </div>
