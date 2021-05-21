@@ -32,9 +32,14 @@ export class TaskItemsComponent implements OnInit {
   ngOnInit(): void {
     this.siblingService.on().subscribe((listId)=>{
       this.listId = listId;
-      this.taskService.getTasks(this.listId).subscribe((tasks: Task) => {
-        this.allTasks = tasks
-      })
+      if(this.listId){
+        this.taskService.getTasks(this.listId).subscribe((tasks: Task) => {
+          this.allTasks = tasks
+        })
+      }
+      else{
+        this.listId = undefined
+      }
     })
   }
 

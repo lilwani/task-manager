@@ -2,11 +2,16 @@
     <div>
         <h4 class="titles">TASKS</h4>
     </div>
-    <div class="allTasks overflow-auto">
+    <div class="allTasks overflow-auto" *ngIf="allTasks">
         <p [@clickAnimation]="isClicked" *ngFor="let item of allTasks" [ngClass]="{'closedTask' : item.completed}" (click)="updateTaskToCompleted(item)">
             {{ item.title }} <i class="fa fa-trash" aria-hidden="true"></i>
         </p>
     </div>
+   
+    <div *ngIf="!allTasks" class="ml-2 mt-4">
+        <i>Please select a List from the sidebar </i>
+    </div>
+    
     <div class="addTaskButton">
         <button type="button" class="btn " routerLink="/lists/{{listId}}/newTask"><span><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></span></button>
     </div>

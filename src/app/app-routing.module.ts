@@ -7,6 +7,7 @@ import { TaskViewComponent } from "./pages/task-view/task-view.component";
 const routes: Routes = [
    {path: '', redirectTo: '/lists', pathMatch: 'full' },
    {path: 'taskview', component: TaskViewComponent},
+   {path: 'login', component: LoginPageComponent},
    {path: 'lists', component: TaskViewComponent},
    {path: 'lists/:listId/newTask', component : NewTaskComponent},
    {path: 'lists/:listId', component: TaskViewComponent},
