@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { FormsModule} from '@angular/forms'
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService : AuthServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  authenticateUserByLogin(email : string,password : string){
+    this.authService.authenticateLogin(email,password).subscribe((res)=>{
+      console.log("LOGGED IN!");
+    })
   }
 
 }
