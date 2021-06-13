@@ -32,6 +32,7 @@ export class ListItemsComponent implements OnInit {
   createNewList(title: string) {
     this.taskservice.createList(title).subscribe((data) => {
       console.log(data)
+      window.location.reload()
     })
   }
 

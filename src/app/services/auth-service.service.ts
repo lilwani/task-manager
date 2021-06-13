@@ -1,4 +1,4 @@
-import { HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WebRequestService } from './web-request.service';
 import { shareReplay, tap } from 'rxjs/operators'
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthServiceService {
 
-  constructor(private webrequest:WebRequestService, private router : Router) { }
+  constructor(private webrequest:WebRequestService, private router : Router, private http: HttpClient) { }
 
   authenticateLogin(email :string, password: string){
       return this.webrequest.login(email,password).pipe(
@@ -36,7 +36,7 @@ export class AuthServiceService {
   }
 
   getUserId() {
-    return localStorage.getItem('user-id');
+    return localStorage.getItem('user_id');
   }
 
   setAccessToken(accessToken: string) {
@@ -54,4 +54,20 @@ export class AuthServiceService {
     localStorage.removeItem('AccessToken'),
     localStorage.removeItem('RefreshToken')
   }
+
+
+  getNewAccessToken(){
+      return this.http.get(`${this.webrequest.ROOT_URL}/users/me/access-token`,{
+        headers:{
+          'x-refresh-token':this.getRefreshToken(),
+          '_id':this.getUserId()
+        },
+        observe: 'response'
+      }).pipe(
+        tap((res : HttpResponse<any>) => {
+          this.setAccessToken(res.headers.get('x-access-token'))
+        })
+      )
+  }
+
 }
