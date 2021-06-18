@@ -19,6 +19,14 @@ export class TaskService {
     return this.webrequest.get('lists')
   }
 
+  editList(id : string, title : string){
+    return this.webrequest.patch(`lists/${id}`,{ title })
+  }
+
+  deleteList(Id : string){
+    return this.webrequest.delete(`lists/${Id}`)
+  }
+
   getTasks(listId : string){
     return this.webrequest.get(`lists/${listId}/tasks`)
   }

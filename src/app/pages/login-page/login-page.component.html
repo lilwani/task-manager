@@ -1,10 +1,13 @@
 <div class="card" style="width: 25rem;">
-  <img src="../../../assets/static/user.svg" class="card-img-top profile-image">
+  <div class="d-flex">
+    <img src="../../../assets/static/user.svg" class="card-img-top profile-image">
+    <label class="ml-3 mt-auto loginHeader">L O G I N</label>
+  </div>
   <div class="card-body">
     <form action="/lists" class="form-signin">
       <input type="email" #emailInput id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <input type="password" #passwordInput id="inputPassword" class="form-control" placeholder="Password" required>
-      <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin" (click)="authenticateUserByLogin(emailInput.value,passwordInput.value)">Sign in</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin" (click)="authenticateUserByLogin(emailInput.value,passwordInput.value)">Login</button>
     </form>
   </div>
 </div>

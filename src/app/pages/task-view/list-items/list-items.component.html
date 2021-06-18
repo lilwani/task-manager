@@ -1,5 +1,14 @@
 <div class="titleAndButton">
     <h4 class="titles">LISTS</h4>
+    <div class="btn-group dropdown">
+        <button type="button" class="cogButton btn btn-md dropdown-toggle" id="dropdownMenus" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenus">
+            <a class="dropdown-item" routerLink="/edit-list/{{selectedList}}">Edit</a>
+            <a class="dropdown-item bg-danger" (click)="deleteList()">Delete</a>
+        </div>
+      </div>
     <button class="add-item btn btn-md" data-toggle="modal" data-target="#staticBackdrop">
         <span><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></span>
     </button>
@@ -22,8 +31,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <input type="text" class="form-control" #listTitle placeholder="Enter List title"
-                            aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" #listTitle placeholder="Enter List title" aria-describedby="basic-addon2" autofocus>
                         <div class="input-group-append ">
                             <button type="submit" data-dismiss="modal" class="btn btn-primary"
                                 (click)="createNewList(listTitle.value)">Create</button>

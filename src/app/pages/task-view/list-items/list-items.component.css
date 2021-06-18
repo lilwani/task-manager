@@ -63,7 +63,26 @@ label:focus{
     padding-top: 10px;
 }
 
+.cogButton{
+    color: rgb(60, 100, 90); 
+    font-weight: bold;
+    padding-bottom: 17px;
+    margin-left: 25px;
+    border : none
+}
+
+.dropdown-menu{
+    text-align: center;
+    width:10%;
+    padding-top:1px;
+    padding-bottom:1px
+}
+
 button:hover{
+    cursor: pointer;
+}
+
+a:hover{
     cursor: pointer;
 }
 

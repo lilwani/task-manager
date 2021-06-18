@@ -11,7 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NewTaskComponent } from './pages/task-view/new-task/new-task.component';
-import { WebRequestInterceptorService } from './interceptors/web-request-interceptor.service'
+import { WebRequestInterceptorService } from './interceptors/web-request-interceptor.service';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { EditListComponent } from './pages/task-view/edit-list/edit-list.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { WebRequestInterceptorService } from './interceptors/web-request-interce
     LoginPageComponent,
     ListItemsComponent,
     TaskItemsComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    SignupPageComponent,
+    EditListComponent
   ],
   imports: [
     BrowserModule,

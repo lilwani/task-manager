@@ -11,20 +11,21 @@ export class WebRequestInterceptorService implements HttpInterceptor{
 
   constructor(private authService : AuthServiceService) { }
 
+  refreshingAccessToken: boolean;
+
   intercept(request : HttpRequest<any>, next : HttpHandler){
 
     request = this.authorization(request)
     return next.handle(request).pipe(
       catchError((err : HttpErrorResponse)=>{
         
-        if(err.status === 401){
+        if(err.status === 401 && !this.refreshingAccessToken){
           return this.refreshAccessToken().pipe(
             switchMap(()=>{
               request= this.authorization(request)
               return next.handle(request)
             }),
             catchError((er:any) => {
-              console.log(er);
               this.authService.logout();
               return empty()
             })
@@ -39,9 +40,11 @@ export class WebRequestInterceptorService implements HttpInterceptor{
 
 
   refreshAccessToken(){
+    this.refreshingAccessToken = true
     return this.authService.getNewAccessToken().pipe(
       tap(()=>{
         console.log("Access Token Refreshed")
+        this.refreshingAccessToken = false
       })
     )
   }
