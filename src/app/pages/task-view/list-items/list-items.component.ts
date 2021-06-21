@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { List } from 'src/app/modals/list.modal';
 import { SiblingDataService } from 'src/app/services/sibling-data.service';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -11,7 +12,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class ListItemsComponent implements OnInit {
 
-  allLists: any[];
+  allLists: List[];
   selectedList : any
   newUserData : any
 
@@ -25,7 +26,7 @@ export class ListItemsComponent implements OnInit {
   ngOnInit(): void {
 
     //Get the lists from Database - Invoke GET : /lists
-    this.taskservice.getLists().subscribe((lists: any[]) => {
+    this.taskservice.getLists().subscribe((lists: List[]) => {
       this.allLists = lists;
     })
 
@@ -36,7 +37,8 @@ export class ListItemsComponent implements OnInit {
     this.taskservice.createList(title).subscribe((data) => {
       this.newUserData = data                                 // Since Angular http calls are asynchrous, when you fire the URL the processing is done in background and lines below are executed. Since you don't have anything in 'data' yet you make it synchronous by assigned it to a local variable and then using it's value below
       console.log(this.newUserData)
-      this.router.navigate([`lists/${this.newUserData._id}`])
+      // this.router.navigate([`lists/${this.newUserData._id}`])
+      this.router.navigate([`/`])
     })
   }
 

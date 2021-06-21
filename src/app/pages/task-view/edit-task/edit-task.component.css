@@ -1,0 +1,23 @@
+@import url("../../../../styles.css");
+
+.editListModal{
+    height:190px;
+    width: 500px;
+    background-color: rgb(227, 238, 238);
+    border-radius: 8px;
+}
+
+.listTitle{
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: rgb(60, 100, 90); 
+
+}
+
+#inputText{
+    width: 94%;
+    height: 40px;
+    border: 1px;
+    border-radius: 4px;
+}
+

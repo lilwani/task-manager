@@ -1,4 +1,3 @@
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { SiblingDataService } from "src/app/services/sibling-data.service";
@@ -6,25 +5,13 @@ import { Task } from 'src/app/modals/task.modal';
 
 @Component({
   selector: 'app-task-items',
-  animations: [
-    trigger('clickAnimation', [
-      state('true', style({
-        transform: 'scale(0.97)'
-      })),
-      state('false', style({
-        transform: 'scale(1.0)'
-      })),
-      transition('true <=> false', animate('10ms'))
-    ]),
-  ],
   templateUrl: './task-items.component.html',
   styleUrls: ['./task-items.component.css']
 })
 export class TaskItemsComponent implements OnInit {
 
-  allTasks: Task 
+  allTasks: Task[] 
   listId : string
-
   constructor(private taskService: TaskService, private siblingService: SiblingDataService) {
   }
 
@@ -33,22 +20,30 @@ export class TaskItemsComponent implements OnInit {
     this.siblingService.on().subscribe((listId)=>{
       this.listId = listId;
       if(this.listId){
-        this.taskService.getTasks(this.listId).subscribe((tasks: Task) => {
+        this.taskService.getTasks(this.listId).subscribe((tasks: Task[]) => {
           this.allTasks = tasks
         })
-      }
-      else{
-        this.listId = undefined
       }
     })
   }
 
   updateTaskToCompleted(task : Task){
     this.taskService.completedTask(task).subscribe(()=>{
-      console.log("This Task update is completed ")
       //toggle complete class for strike-through effect
       task.completed = !task.completed
     })
   }
 
+
+  deleteTask(task : string){
+    this.taskService.deleteTask(this.listId, task).subscribe((res: any)=>{
+      this.allTasks = this.allTasks.filter(val => val._id !== task)
+      console.log(res)
+    })
+  }
+
+
 }
+
+
+

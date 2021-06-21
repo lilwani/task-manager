@@ -1,11 +1,23 @@
+
 <div>
     <div>
         <h4 class="titles">TASKS</h4>
     </div>
     <div class="allTasks overflow-auto" *ngIf="allTasks">
-        <p [@clickAnimation]="isClicked" *ngFor="let item of allTasks" [ngClass]="{'closedTask' : item.completed}" (click)="updateTaskToCompleted(item)">
-            {{ item.title }} <i class="fa fa-trash" aria-hidden="true"></i>
-        </p>
+        <div *ngFor="let item of allTasks" [ngClass]="{'closedTask' : item.completed}" (click)="updateTaskToCompleted(item)">
+            <div class="itemsAndIcons">
+                <div class="tasktitle" >
+                    <p>{{item.title}}</p>
+                    <div class="buttonDiv">
+                        <button class="btn float-right text-danger" (click)="deleteTask(item._id)"><i class="fa fa-trash"aria-hidden="true"></i></button>
+                        <button class="btn float-right" routerLink="/lists/{{listId}}/edit-task/{{item._id}}"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="allTasks.length == 0" class="ml-2 mt-4">
+            <i>No tasks added yet </i>
+        </div>
     </div>
    
     <div *ngIf="!allTasks" class="ml-2 mt-4">
