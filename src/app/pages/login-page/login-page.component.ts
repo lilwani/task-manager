@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { FormsModule} from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -9,14 +10,18 @@ import { FormsModule} from '@angular/forms'
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private authService : AuthServiceService) { }
+  constructor(private authService : AuthServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   authenticateUserByLogin(email : string,password : string){
     this.authService.authenticateLogin(email,password).subscribe((res)=>{
-      console.log("LOGGED IN!");
+      if(res.status === 200){
+        console.log("LOGGED IN!");
+        this.router.navigate(['/'])
+      }
+      
     })
   }
 

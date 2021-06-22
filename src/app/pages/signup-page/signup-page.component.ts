@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { FormsModule} from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-page',
@@ -9,14 +10,19 @@ import { FormsModule} from '@angular/forms'
 })
 export class SignupPageComponent implements OnInit {
 
-  constructor(private authService: AuthServiceService) { }
+  constructor(private authService: AuthServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
   
   authenticateUserBySignup(email : string,password : string){
     this.authService.authenticateSignin(email,password).subscribe((res)=>{
-      console.log("Successfully signed up and logged in!");
+      if(res.status === 200){
+        
+        console.log("Successfully signed up and logged in!");
+        this.router.navigate(['/lists'])
+
+      }
     })
   }
 

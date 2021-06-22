@@ -37,8 +37,7 @@ export class ListItemsComponent implements OnInit {
     this.taskservice.createList(title).subscribe((data) => {
       this.newUserData = data                                 // Since Angular http calls are asynchrous, when you fire the URL the processing is done in background and lines below are executed. Since you don't have anything in 'data' yet you make it synchronous by assigned it to a local variable and then using it's value below
       console.log(this.newUserData)
-      // this.router.navigate([`lists/${this.newUserData._id}`])
-      this.router.navigate([`/`])
+      this.router.navigate([`lists/${this.newUserData._id}`])
     })
   }
 

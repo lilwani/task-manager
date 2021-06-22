@@ -11,6 +11,11 @@
     margin : 10px 2px;
 }
 
+.titleFlex{
+    display: flex;
+    
+}
+
 .allTasks{
     -moz-user-select: none;
     -webkit-user-select: none;
