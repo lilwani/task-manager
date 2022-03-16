@@ -2,7 +2,6 @@
 <div>
     <div class="titleFlex">
         <h4 class="titles">TASKS</h4>
-        <button class="btn btn-sm btn-info float-right w-5 py-0 my-0 ">Logout</button>
     </div>
     <div class="allTasks overflow-auto" *ngIf="allTasks">
         <div *ngFor="let item of allTasks" [ngClass]="{'closedTask' : item.completed}" (click)="updateTaskToCompleted(item)">
